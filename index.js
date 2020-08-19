@@ -43,9 +43,13 @@ async function updateCourse(id) {
     }, { new: true });
 }
 
+async function deleteCourse(id) {
+    return await Course.deleteOne({ _id: id });
+}
+
 async function run() {
-    const courses = await getCourses();
-    console.log(courses);
+    const course = await getCourses();
+    console.log(course);
 }
 
 run();
