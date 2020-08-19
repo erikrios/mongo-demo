@@ -27,13 +27,16 @@ async function createCourse() {
 }
 
 async function getCourses() {
-    const courses = await Course
+    return await Course
         .find({ author: 'Erik Rio Setiawan', isPublished: true })
         .limit(10)
         .sort({ name: 1 })
         .select({ name: 1, tags: 1 });
+}
 
+async function run() {
+    const courses = await getCourses();
     console.log(courses);
 }
 
-getCourses();
+run();
