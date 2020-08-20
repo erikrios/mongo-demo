@@ -60,7 +60,8 @@ async function createCourse() {
         const result = await course.save();
         console.log(result);
     } catch (error) {
-        console.log(error.message);
+        for (field in error.errors)
+            console.log(error.errors[field].message);
     }
 }
 
